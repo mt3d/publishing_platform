@@ -2,7 +2,9 @@
 {
 	public class Article
 	{
+		// TODO: Use long or Guid?
 		public int ArticleId { get; set; }
+
 		public string? Slug { get; set; }
 		public string? Title { get; set; }
 		public string? Subtitle { get; set; }
