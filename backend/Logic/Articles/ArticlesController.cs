@@ -43,6 +43,8 @@ namespace backend.Logic.Articles
 		}
 
 		[HttpGet("{slug}")]
+		[ProducesResponseType(StatusCodes.Status200OK)]
+		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		public async Task<IActionResult> Get(string slug)
 		{
 			var article = await context.Articles.AsNoTracking().FirstOrDefaultAsync(x => x.Slug == slug);

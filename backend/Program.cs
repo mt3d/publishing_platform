@@ -1,10 +1,8 @@
-using Azure.Identity;
 using backend.Logic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// TODO: Add DbContext
 
 // TODO: Configure connection string and database provider
 builder.Services.AddDbContext<PlatformContext>(options =>
@@ -15,7 +13,13 @@ builder.Services.AddDbContext<PlatformContext>(options =>
 
 // TODO: Add Localization
 
-// TODO: Add SwaggerGen
+builder.Services.AddSwaggerGen(opts =>
+{
+	// TODO: Add Security Definition to describe how the api is protected
+	// TODO: Does the API support Non Nullable Reference types?
+	// TODO: AddSecurityRequirement()
+	opts.SwaggerDoc("v1", new OpenApiInfo { Title = "Publishing_Platform", Version = "v0.1" });
+});
 
 // TODO: Add Cors
 
@@ -37,7 +41,11 @@ var app = builder.Build();
 
 app.MapControllers();
 
-// TODO: Use Swagger
+if (app.Environment.IsDevelopment())
+{
+	app.UseSwagger();
+	app.UseSwaggerUI(options => { options.SwaggerEndpoint("/swagger/v1/swagger.json", "Publishing_Platform"); });
+}
 
 using (var scope = app.Services.CreateScope())
 {
