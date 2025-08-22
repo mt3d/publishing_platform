@@ -1,4 +1,4 @@
-﻿A backened API for a medium.com clone. Built using ASP.NET Core.
+﻿A medium.com clone backened API.
 
 # Requirements
 
