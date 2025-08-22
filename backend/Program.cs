@@ -29,6 +29,13 @@ builder.Services.AddControllers(opts =>
 
 // TODO: Add custom services here
 
+/*
+ * "You define the configuration using profiles. And then you let AutoMapper
+ * know in what assemblies are those profiles defined by calling the IServiceCollection
+ * extension method AddAutoMapper at startup"
+ */
+builder.Services.AddAutoMapper(cfg => { }, typeof(Program));
+
 // TODO: Add JWT
 
 var app = builder.Build();
