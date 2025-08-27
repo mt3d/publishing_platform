@@ -1,8 +1,9 @@
-﻿using backend.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using backend.Infrastructure.UserManagement;
+using backend.Data.Entities;
+using backend.Data;
 
 namespace backend.Logic.Users
 {
@@ -27,11 +28,11 @@ namespace backend.Logic.Users
 		// TODO: Authentication required
 		[HttpPut]
 		public async Task<IActionResult> UpdateUser(
-			[FromBody] string username,
-			[FromBody] string email,
-			[FromBody] string password,
-			[FromBody] string bio,
-			[FromBody] string profilePic)
+			string username,
+			string email,
+			string password,
+			string bio,
+			string profilePic)
 		{
 			var currentUsername = accessor.GetCurrentUsername();
 			var user = await context.Users.Where(u => u.Username == currentUsername).FirstOrDefaultAsync();

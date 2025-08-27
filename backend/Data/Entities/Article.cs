@@ -1,4 +1,4 @@
-﻿namespace backend.Models
+﻿namespace backend.Data.Entities
 {
 	public class Article
 	{

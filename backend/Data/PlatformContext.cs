@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using backend.Models;
+using backend.Data.Entities;
 
-namespace backend.Logic
+namespace backend.Data
 {
 	public class PlatformContext(DbContextOptions options) : DbContext(options)
 	{

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using backend.Data.Entities;
 using backend.Logic.Users;
-using backend.Models;
 
 namespace backend.Infrastructure
 {
