@@ -8,6 +8,7 @@ namespace backend.Data
 		public DbSet<Article> Articles => Set<Article>();
 		public DbSet<User> Users => Set<User>();
 		public DbSet<FollowMapping> FollowMappings => Set<FollowMapping>();
+		public DbSet<Comment> Comments => Set<Comment>();
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
