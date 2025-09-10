@@ -4,9 +4,9 @@ namespace backend.Infrastructure.UserManagement
 {
 	public class UserAccessor : IUserAccessor
 	{
-		private HttpContextAccessor contextAccessor;
+		private IHttpContextAccessor contextAccessor;
 
-		public UserAccessor(HttpContextAccessor contextAccessor)
+		public UserAccessor(IHttpContextAccessor contextAccessor)
 		{
 			this.contextAccessor = contextAccessor;
 		}

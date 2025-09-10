@@ -1,13 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using backend.Models;
+using backend.Data.Entities;
 
-namespace backend.Logic
+namespace backend.Data
 {
 	public class PlatformContext(DbContextOptions options) : DbContext(options)
 	{
 		public DbSet<Article> Articles => Set<Article>();
 		public DbSet<User> Users => Set<User>();
 		public DbSet<FollowMapping> FollowMappings => Set<FollowMapping>();
+		public DbSet<Comment> Comments => Set<Comment>();
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
