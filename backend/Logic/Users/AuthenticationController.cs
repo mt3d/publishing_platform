@@ -28,7 +28,7 @@ namespace backend.Logic.Users
 		}
 
 		public record UserData(string? Username, string? Email, string? Password);
-		public record UserCredentials(string? Username, string? Password);
+		public record UserCredentials(string? Email, string? Password);
 
 		/*
 		 * Expected request body:
@@ -77,7 +77,7 @@ namespace backend.Logic.Users
 		[HttpPost("signin")]
 		public async Task<IActionResult> SignIn([FromBody] UserCredentials data)
 		{
-			var user = await context.Users.Where(u => u.Username == data.Username).SingleOrDefaultAsync();
+			var user = await context.Users.Where(u => u.Email == data.Email).SingleOrDefaultAsync();
 
 			if (user == null)
 			{

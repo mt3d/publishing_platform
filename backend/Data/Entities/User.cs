@@ -9,9 +9,11 @@ namespace backend.Data.Entities
 		// TODO: Ensure usernames are unique.
 		public string? Username { get; set; }
 
+		public string? FullName { get; set; }
 		public string? Email { get; set; }
 		public string? Bio { get; set; }
 		public string? ProfilePic { get; set; }
+		public string? Url { get; set; }
 
 		// TODO: Add followers, following, and favorite articles
 		[JsonIgnore]

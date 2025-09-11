@@ -22,10 +22,10 @@ namespace backend.Logic.Articles
 		/// <returns></returns>
 		[HttpGet]
 		public async Task<ArticlesWrapper> Get(
-			[FromQuery] string tag,
-			[FromQuery] string author,
+			[FromQuery] string? tag,
+			[FromQuery] string? author,
 			[FromQuery] int? limit,
-			int? offset)
+			[FromQuery] int? offset)
 		{
 			// TODO: Include Authors, ArticleFavorites, and Article Tags
 			var query = context.Articles.AsNoTracking();
@@ -33,7 +33,7 @@ namespace backend.Logic.Articles
 			var articles = await query
 				.OrderByDescending(a => a.CreatedAt)
 				.Skip(offset ?? 0)
-				.Take(limit ?? 0)
+				.Take(limit ?? 10)
 				.AsNoTracking()
 				.ToListAsync();
 

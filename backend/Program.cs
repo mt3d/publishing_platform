@@ -92,7 +92,10 @@ if (app.Environment.IsDevelopment())
 
 using (var scope = app.Services.CreateScope())
 {
-	var context = scope.ServiceProvider.GetRequiredService<PlatformContext>().Database.EnsureCreated();
+	var context = scope.ServiceProvider.GetRequiredService<PlatformContext>();
+	//bool created = context.Database.EnsureCreated();
+
+	SeedData.EnsurePopulated(context);
 }
 
 app.Run();
